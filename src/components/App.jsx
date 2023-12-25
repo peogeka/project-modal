@@ -1,16 +1,23 @@
-export const App = () => {
+import React, { useState } from 'react';
+import DailyNormaModal from './DailyNormaModal';
+
+const App = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
+    <div>
+      <button onClick={openModal}>Open Modal</button>
+      <DailyNormaModal isOpen={modalOpen} onClose={closeModal} />
     </div>
   );
 };
+
+export default App;
